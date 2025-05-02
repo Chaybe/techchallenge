@@ -8,6 +8,7 @@ urlpatterns = [
         'get': 'list', 
         'post': 'create'
     }), name='processamento-list'),
+    
     path('processamento/<str:pk>', ProcessamentoViewSet.as_view({
         'get': 'retrieve', 
         'put': 'update', 

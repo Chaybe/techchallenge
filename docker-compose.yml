@@ -7,22 +7,6 @@ services:
     ports:
       - "5672:5672"
 
-  backend:
-    build:
-      context: .
-      dockerfile: Dockerfile
-    networks:
-      - techchallenge
-    ports:
-      - 8000:8000
-    volumes:
-      - .:/app
-    depends_on:
-      postgres:
-        condition: service_healthy
-    environment:
-      PGSQL_HOST: postgres
-
   postgres:
     image: postgres:15
     container_name: postgres
@@ -37,6 +21,22 @@ services:
       - 5432:5432
     volumes:
       - postgres_data:/var/lib/postgresql/data
+
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    networks:
+      - techchallenge
+    ports:
+      - 8000:8000
+    volumes:
+      - .:/app
+    environment:
+      PGSQL_HOST: postgres
+    depends_on:
+      postgres:
+        condition: service_healthy
 
 volumes:
   postgres_data:
