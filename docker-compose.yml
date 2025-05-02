@@ -1,4 +1,12 @@
 services:
+  rabbitmq:
+    image: rabbitmq:latest
+    environment:
+      - RABBITMQ_DEFAULT_USER=guest
+      - RABBITMQ_DEFAULT_PASS=guest
+    ports:
+      - "5672:5672"
+
   backend:
     build:
       context: .
@@ -12,6 +20,8 @@ services:
     depends_on:
       postgres:
         condition: service_healthy
+    environment:
+      PGSQL_HOST: postgres
 
   postgres:
     image: postgres:15
@@ -27,6 +37,7 @@ services:
       - 5432:5432
     volumes:
       - postgres_data:/var/lib/postgresql/data
+
 volumes:
   postgres_data:
 

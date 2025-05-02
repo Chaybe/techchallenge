@@ -4,10 +4,13 @@ from rest_framework.response import Response
 from .models import Processamento
 from .serializers import ProcessamentoSerializer
 
+from .task import hello
+
 class ProcessamentoViewSet(viewsets.ModelViewSet):
     def list(self, request):
         processamento = Processamento.objects.all()
         serializer = ProcessamentoSerializer(processamento, many=True)
+        hello.delay("Chaybe Lucas")
         return Response(serializer.data)
 
     def create(self, request):
