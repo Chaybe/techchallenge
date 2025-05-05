@@ -100,12 +100,12 @@
 <main class="main">
   <div class="content">
     <div class="container-input">
-      <input type="text" value="0" [(ngModel)]="num1" id="num1" name="num1" />
+      <input type="text" value="0" [(ngModel)]="num1" id="num1" name="num1" autofocus />
       <input type="text" value="0" [(ngModel)]="num2" id="num2" name="num2" />
       <input type="text" value="0" [(ngModel)]="num3" id="num3" name="num3" />
     </div>
     <div class="container-submit">
-      <input type="submit" value="Calcular" id="counter" (click)="createProcessamento()" />
+      <input class="btn-confirm" type="submit" value="Calcular" id="counter" (click)="createProcessamento()" />
     </div>
     <div class="container-table">
       <table *ngIf="data.length > 0" [border]="1">
@@ -124,7 +124,7 @@
             <td>{{ item.num1 }}</td>
             <td>{{ item.num2 }}</td>
             <td>{{ item.num3 }}</td>
-            <td>{{ item.media }}</td>
+            <td>{{ item.media | number:'1.2-2' }}</td>
             <td>{{ item.mediana }}</td>
             <td>{{ item.status }}</td>
           </tr>

@@ -72,7 +72,6 @@ export class AppComponent {
       }
 
       const result = await response.json();
-      console.log('Dados salvos com sucesso:', result);
 
       this.getListProcessamento();
     } catch (error) {

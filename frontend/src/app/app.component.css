@@ -1,0 +1,88 @@
+.btn-confirm {
+    width: 200px;
+    height: 40px;
+    border-radius: 10px;
+
+    border-width: 0px;
+    background-color: #003cac;
+    color: white;
+
+    transition: all 0.3s ease-in-out;
+}
+
+.btn-confirm:hover {
+    cursor: pointer;
+    background-color: #00215e;
+    color: white;
+    border-radius: 20px;
+}
+
+input[type="text"], input[type="number"] {
+    width: 100%;
+    max-width: 200px;
+    padding: 10px 15px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    outline: none;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+input[type="text"]:focus, input[type="number"]:focus {
+    border-color: #003cac;
+    box-shadow: 0 0 8px rgba(0, 60, 172, 0.5);
+}
+
+input[type="text"]::placeholder, input[type="number"]::placeholder {
+    color: #aaa;
+    font-style: italic;
+}
+
+.container-input {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 14px;
+    text-align: center;
+    background-color: #f9f9f9;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
+    border-width: 0px;
+}
+
+th, td {
+    width: 120px;
+    height: 40px;
+    border-bottom: 1px solid #ddd;
+    border-width: 0px;
+}
+
+th {
+    background-color: #003cac;
+    color: white;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+td {
+    color: #333;
+}
+
+tr:hover {
+    background-color: #f1f1f1;
+}
+
+tr:last-child td {
+    border-bottom: none;
+}

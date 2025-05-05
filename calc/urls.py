@@ -13,6 +13,9 @@ urlpatterns = [
         'get': 'retrieve', 
         'put': 'update', 
         'delete': 'destroy'
-    }), name='processamento-detail'
-)
+    }), name='processamento-detail'),
+
+    path('processamento/<int:num>', ProcessamentoViewSet.as_view({
+        'get': 'list_by_id'
+    }))
 ]

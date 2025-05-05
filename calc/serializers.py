@@ -5,3 +5,4 @@ class ProcessamentoSerializer(serializers.ModelSerializer):
     class Meta:
         model = Processamento
         fields = '__all__'
+        #read_only_fields = ['media', 'mediana', 'status']
