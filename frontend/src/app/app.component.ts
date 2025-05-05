@@ -30,6 +30,7 @@ export class AppComponent {
   data: IProcessamento[] = [];
   baseUrl = 'http://localhost:8000/api';
   
+  
   private konamiCode: string[] = [
     'ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown',
     'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight',
