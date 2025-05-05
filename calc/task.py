@@ -13,9 +13,10 @@ def processar_numeros(id):
 
         p.status = "Concluído"
 
-        sleep(5)
+        sleep(3) # Simulate a long-running task
 
         p.save()
+        
     except Processamento.DoesNotExist:
         print(f"Registro com ID {id} não encontrado.")
         

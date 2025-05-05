@@ -5,17 +5,15 @@ from .views import ProcessamentoViewSet
 
 urlpatterns = [
     path('processamento', ProcessamentoViewSet.as_view({
-        'get': 'list', 
+        'get': 'list',
         'post': 'create'
-    }), name='processamento-list'),
+    }), name='processamento-list-create'),
     
     path('processamento/<str:pk>', ProcessamentoViewSet.as_view({
-        'get': 'retrieve', 
-        'put': 'update', 
-        'delete': 'destroy'
+        'put': 'update',
     }), name='processamento-detail'),
-
-    path('processamento/<int:num>', ProcessamentoViewSet.as_view({
-        'get': 'list_by_id'
-    }))
+    
+    path('status/<int:pk>', ProcessamentoViewSet.as_view({
+        'get': 'list_by_id',
+    }), name='processamento-status'),
 ]

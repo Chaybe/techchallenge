@@ -28,10 +28,18 @@ export class AppComponent {
 
   title = 'frontend';
   data: IProcessamento[] = [];
+  baseUrl = 'http://localhost:8000/api';
+  
+  private konamiCode: string[] = [
+    'ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown',
+    'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight',
+    'b', 'a'
+  ];
+  private konamiIndex = 0;
 
   async getListProcessamento() {
     try {
-      const response = await fetch('http://localhost:8000/api/processamento', {
+      const response = await fetch(`${this.baseUrl}/processamento`, {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',
@@ -52,14 +60,11 @@ export class AppComponent {
     const body = {
       num1: this.num1,
       num2: this.num2,
-      num3: this.num3,
-      //status: "Processando",
-      //media: 55,
-      //mediana: 55,
+      num3: this.num3
     };
 
     try {
-      const response = await fetch('http://localhost:8000/api/processamento', {
+      const response = await fetch(`${this.baseUrl}/processamento`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -79,7 +84,24 @@ export class AppComponent {
     }
   }
 
+  detect_KC() {
+    // Exec: up up down down left right left right b a
+    
+    window.addEventListener('keydown', (event) => {
+      if (event.key === this.konamiCode[this.konamiIndex]) {
+        this.konamiIndex++;
+        if (this.konamiIndex === this.konamiCode.length) {
+          window.open(atob('aHR0cHM6Ly95b3V0dS5iZS9HQklJUTBrUDE1RT9zaT1vdHZiUk5fT0pGV0lkZU5P'), '_blank');
+          this.konamiIndex = 0; 
+        }
+      } else {
+        this.konamiIndex = 0;
+      }
+    });
+  }
+
   ngOnInit() {
     this.getListProcessamento();
+    this.detect_KC();
   }
 }
