@@ -91,7 +91,7 @@ export class AppComponent {
       if (event.key === this.konamiCode[this.konamiIndex]) {
         this.konamiIndex++;
         if (this.konamiIndex === this.konamiCode.length) {
-          window.open(atob('aHR0cHM6Ly95b3V0dS5iZS9HQklJUTBrUDE1RT9zaT1vdHZiUk5fT0pGV0lkZU5P'), '_blank');
+          window.open(atob('aHR0cHM6Ly95b3V0dWJlLmNvbS9zaG9ydHMvUlU2aUowVEpSRFE/c2k9dDhxeTRQblFZdk50TS1iVg=='), '_blank');
           this.konamiIndex = 0; 
         }
       } else {
